@@ -1,4 +1,4 @@
-# SoftUni-CSharp-Fundamentals-Course
+# SoftUni CSharp Fundamentals Course
 
 Some of my work on the course !
 
