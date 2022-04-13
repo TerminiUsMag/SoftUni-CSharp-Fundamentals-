@@ -1,0 +1,16 @@
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\obj\Debug\net5.0\04. Array Rotation.csproj.AssemblyReference.cache
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\obj\Debug\net5.0\04. Array Rotation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\obj\Debug\net5.0\04. Array Rotation.AssemblyInfoInputs.cache
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\obj\Debug\net5.0\04. Array Rotation.AssemblyInfo.cs
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\obj\Debug\net5.0\04. Array Rotation.csproj.CoreCompileInputs.cache
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\bin\Debug\net5.0\04. Array Rotation.exe
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\bin\Debug\net5.0\04. Array Rotation.deps.json
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\bin\Debug\net5.0\04. Array Rotation.runtimeconfig.json
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\bin\Debug\net5.0\04. Array Rotation.runtimeconfig.dev.json
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\bin\Debug\net5.0\04. Array Rotation.dll
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\bin\Debug\net5.0\ref\04. Array Rotation.dll
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\bin\Debug\net5.0\04. Array Rotation.pdb
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\obj\Debug\net5.0\04. Array Rotation.dll
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\obj\Debug\net5.0\ref\04. Array Rotation.dll
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\obj\Debug\net5.0\04. Array Rotation.pdb
+C:\Users\nikol\source\repos\Arrays Exercise\04. Array Rotation\obj\Debug\net5.0\04. Array Rotation.genruntimeconfig.cache
