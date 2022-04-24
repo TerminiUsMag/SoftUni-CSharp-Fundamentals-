@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nikol\\Documents\\SoftUni-CSharp-Fundamentals-Course\\Associative Arrays - More Exercise\\01. Ranking\\01. Ranking.csproj",
-      "projectName": "01. Ranking",
-      "projectPath": "C:\\Users\\nikol\\Documents\\SoftUni-CSharp-Fundamentals-Course\\Associative Arrays - More Exercise\\01. Ranking\\01. Ranking.csproj",
+      "projectUniqueName": "C:\\Users\\nikol\\Documents\\SoftUni-CSharp-Fundamentals-Course\\Associative Arrays - More Exercise\\02. Judge\\02. Judge.csproj",
+      "projectName": "02. Judge",
+      "projectPath": "C:\\Users\\nikol\\Documents\\SoftUni-CSharp-Fundamentals-Course\\Associative Arrays - More Exercise\\02. Judge\\02. Judge.csproj",
       "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nikol\\Documents\\SoftUni-CSharp-Fundamentals-Course\\Associative Arrays - More Exercise\\01. Ranking\\obj\\",
+      "outputPath": "C:\\Users\\nikol\\Documents\\SoftUni-CSharp-Fundamentals-Course\\Associative Arrays - More Exercise\\02. Judge\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
