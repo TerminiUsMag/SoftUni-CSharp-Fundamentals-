@@ -58,7 +58,18 @@ namespace _03._MOBA_Challenger
                             }
                         }
                     }
-
+                    if (!isValid)
+                    {
+                        continue;
+                    }
+                    if(sumPlayer1 > sumPlayer2)
+                    {
+                        poolOfPlayers.Remove(player2);
+                    }
+                    else if(sumPlayer1 < sumPlayer2)
+                    {
+                        poolOfPlayers.Remove(player1);
+                    }
                 }
                 else
                 {
@@ -106,6 +117,16 @@ namespace _03._MOBA_Challenger
                     }
                 }
 
+            }
+
+            var orderedPoolOfPlayers = poolOfPlayers
+                .OrderByDescending(x => x.Value.Values)
+                .ThenBy(x => x.Key)
+                .ToDictionary(x => x.Key, x => x.Value);
+
+            foreach(var pair in orderedPoolOfPlayers)
+            {
+                Console.WriteLine($"{pair.Key}: ");
             }
         }
     }
