@@ -26,7 +26,38 @@ namespace _03._MOBA_Challenger
                 {
                     string player1 = commandTokens[0];
                     string player2 = commandTokens[1];
+                    string winner = string.Empty;
+                    bool isValid = false;
 
+
+                    if (!poolOfPlayers.ContainsKey(player1) || !poolOfPlayers.ContainsKey(player2))
+                    {
+                        continue;
+                    }
+                    int sumPlayer1 = 0;
+                    int sumPlayer2 = 0;
+                    foreach (var positionsOfPlayer1 in poolOfPlayers[player1])
+                    {
+                        sumPlayer1 += positionsOfPlayer1.Value;
+
+
+                        foreach (var positionsOfPlayer2 in poolOfPlayers[player2])
+                        {
+                            sumPlayer2 += positionsOfPlayer2.Value;
+                            if (positionsOfPlayer2.Key == positionsOfPlayer1.Key)
+                            {
+                                //if(positionsOfPlayer1.Value > positionsOfPlayer2.Value)
+                                //{
+                                //    winner = "player1";
+                                //}
+                                //else if(positionsOfPlayer2.Value > positionsOfPlayer1.Value)
+                                //{
+                                //    winner = "player2";
+                                //}
+                                isValid = true;
+                            }
+                        }
+                    }
 
                 }
                 else
