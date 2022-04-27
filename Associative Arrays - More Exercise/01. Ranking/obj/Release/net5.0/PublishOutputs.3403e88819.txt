@@ -1,0 +1,5 @@
+C:\Users\nikol\Documents\publish\01. Ranking.exe
+C:\Users\nikol\Documents\publish\01. Ranking.dll
+C:\Users\nikol\Documents\publish\01. Ranking.deps.json
+C:\Users\nikol\Documents\publish\01. Ranking.runtimeconfig.json
+C:\Users\nikol\Documents\publish\01. Ranking.pdb

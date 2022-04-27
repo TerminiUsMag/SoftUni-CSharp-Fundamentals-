@@ -1,0 +1,5 @@
+C:\Users\nikol\Documents\SoftUni-CSharp-Fundamentals-Course\Associative Arrays - More Exercise\02. Judge\bin\Release\net5.0\publish\02. Judge.exe
+C:\Users\nikol\Documents\SoftUni-CSharp-Fundamentals-Course\Associative Arrays - More Exercise\02. Judge\bin\Release\net5.0\publish\02. Judge.dll
+C:\Users\nikol\Documents\SoftUni-CSharp-Fundamentals-Course\Associative Arrays - More Exercise\02. Judge\bin\Release\net5.0\publish\02. Judge.deps.json
+C:\Users\nikol\Documents\SoftUni-CSharp-Fundamentals-Course\Associative Arrays - More Exercise\02. Judge\bin\Release\net5.0\publish\02. Judge.runtimeconfig.json
+C:\Users\nikol\Documents\SoftUni-CSharp-Fundamentals-Course\Associative Arrays - More Exercise\02. Judge\bin\Release\net5.0\publish\02. Judge.pdb
