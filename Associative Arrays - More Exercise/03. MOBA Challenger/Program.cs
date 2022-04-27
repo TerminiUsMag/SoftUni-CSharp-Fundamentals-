@@ -126,7 +126,7 @@ namespace _03._MOBA_Challenger
 
             foreach(var pair in orderedPoolOfPlayers)
             {
-                Console.WriteLine($"{pair.Key}: ");
+                Console.WriteLine($"{pair.Key}: {pair.Value.Values}");
             }
         }
     }
