@@ -62,11 +62,11 @@ namespace _03._MOBA_Challenger
                     {
                         continue;
                     }
-                    if(sumPlayer1 > sumPlayer2)
+                    if (sumPlayer1 > sumPlayer2)
                     {
                         poolOfPlayers.Remove(player2);
                     }
-                    else if(sumPlayer1 < sumPlayer2)
+                    else if (sumPlayer1 < sumPlayer2)
                     {
                         poolOfPlayers.Remove(player1);
                     }
@@ -124,9 +124,24 @@ namespace _03._MOBA_Challenger
                 .ThenBy(x => x.Key)
                 .ToDictionary(x => x.Key, x => x.Value);
 
-            foreach(var pair in orderedPoolOfPlayers)
+            foreach (var pair in orderedPoolOfPlayers)
             {
-                Console.WriteLine($"{pair.Key}: {pair.Value.Values}");
+                var totalSkill = 0;
+                foreach (var skill in pair.Value.Values)
+                {
+                    totalSkill += skill;
+
+                }
+                Console.WriteLine($"{pair.Key}: {totalSkill}");
+                var orderedForEachPlayer = pair
+                    .Value
+                    .OrderByDescending(x => x.Value)
+                    .ThenBy(x => x.Key)
+                    .ToDictionary(x => x.Key, x => x.Value);
+                foreach (var positionAndSkill in orderedForEachPlayer)
+                {
+                    Console.WriteLine($"- {positionAndSkill.Key} <::> {positionAndSkill.Value}");
+                }
             }
         }
     }
