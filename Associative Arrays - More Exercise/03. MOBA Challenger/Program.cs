@@ -119,8 +119,17 @@ namespace _03._MOBA_Challenger
 
             }
 
+            foreach(var player in poolOfPlayers)
+            {
+                int total = 0;
+                foreach(var player1 in player.Value)
+                {
+                    total += player1.Value;
+                }player.Value.Add("total",total);
+            }
+
             var orderedPoolOfPlayers = poolOfPlayers
-                .OrderByDescending(x => x.Value.Values)
+                .OrderByDescending(x => x.Value["total"])
                 .ThenBy(x => x.Key)
                 .ToDictionary(x => x.Key, x => x.Value);
 
