@@ -119,13 +119,14 @@ namespace _03._MOBA_Challenger
 
             }
 
-            foreach(var player in poolOfPlayers)
+            foreach (var player in poolOfPlayers)
             {
                 int total = 0;
-                foreach(var player1 in player.Value)
+                foreach (var player1 in player.Value)
                 {
                     total += player1.Value;
-                }player.Value.Add("total",total);
+                }
+                player.Value.Add("total", total);
             }
 
             var orderedPoolOfPlayers = poolOfPlayers
@@ -136,12 +137,14 @@ namespace _03._MOBA_Challenger
             foreach (var pair in orderedPoolOfPlayers)
             {
                 var totalSkill = 0;
-                foreach (var skill in pair.Value.Values)
+                foreach (var skill in pair.Value)
                 {
-                    totalSkill += skill;
-
+                    if (skill.Key == "total")
+                    {
+                        totalSkill = skill.Value;
+                    }
                 }
-                Console.WriteLine($"{pair.Key}: {totalSkill}");
+                Console.WriteLine($"{pair.Key}: {totalSkill} skill");
                 var orderedForEachPlayer = pair
                     .Value
                     .OrderByDescending(x => x.Value)
@@ -149,7 +152,10 @@ namespace _03._MOBA_Challenger
                     .ToDictionary(x => x.Key, x => x.Value);
                 foreach (var positionAndSkill in orderedForEachPlayer)
                 {
-                    Console.WriteLine($"- {positionAndSkill.Key} <::> {positionAndSkill.Value}");
+                    if ("total" != positionAndSkill.Key)
+                    {
+                        Console.WriteLine($"- {positionAndSkill.Key} <::> {positionAndSkill.Value}");
+                    }
                 }
             }
         }
