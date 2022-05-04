@@ -10,6 +10,8 @@ namespace _05._Dragon_Army
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
+            var dragonArmy = new Dictionary<string, Dictionary<string, List<int>>>();
+
             for (int i = 0; i < n; i++)
             {
                 //format "{type} {name} {damage} {health} {armor}".
@@ -47,6 +49,13 @@ namespace _05._Dragon_Army
                     armor = int.Parse(command[4]);
                 }
 
+                var newList = new List<int>();
+                newList.Add(damage);
+                newList.Add(health);
+                newList.Add(armor);
+                var newDict = new Dictionary<string , List<int>>();
+                newDict.Add(name, newList);
+                dragonArmy.Add(type, newDict);
 
             }
         }
