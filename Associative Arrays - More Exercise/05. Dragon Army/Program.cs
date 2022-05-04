@@ -10,7 +10,10 @@ namespace _05._Dragon_Army
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-            var dragonArmy = new Dictionary<string, Dictionary<string, List<int>>>();
+            var dragonArmy = new Dictionary<string, SortedDictionary<string, List<int>>>();
+            var listOfTypes = new List<string>();
+            var typesDict = new Dictionary<string, List<double>>();
+
 
             for (int i = 0; i < n; i++)
             {
@@ -32,7 +35,7 @@ namespace _05._Dragon_Army
                 {
                     damage = int.Parse(command[2]);
                 }
-                if(command[3] == "null")
+                if (command[3] == "null")
                 {
                     health = 250;
                 }
@@ -40,7 +43,7 @@ namespace _05._Dragon_Army
                 {
                     health = int.Parse(command[3]);
                 }
-                if(command[4] == "null")
+                if (command[4] == "null")
                 {
                     armor = 10;
                 }
@@ -49,14 +52,58 @@ namespace _05._Dragon_Army
                     armor = int.Parse(command[4]);
                 }
 
-                var newList = new List<int>();
-                newList.Add(damage);
-                newList.Add(health);
-                newList.Add(armor);
-                var newDict = new Dictionary<string , List<int>>();
-                newDict.Add(name, newList);
-                dragonArmy.Add(type, newDict);
+                if (dragonArmy.ContainsKey(type))
+                {
+                    if (dragonArmy[type].ContainsKey(name))
+                    {
+                        dragonArmy[type][name] = new List<int> { damage, health, armor };
+                    }
+                    else
+                    {
+                        dragonArmy[type].Add(name, new List<int> { damage, health, armor });
+                    }
+                }
 
+                if (!dragonArmy.ContainsKey(type))
+                {
+                    var newList = new List<int>() { damage, health, armor };
+                    var newDict = new SortedDictionary<string, List<int>>();
+                    newDict.Add(name, newList);
+                    dragonArmy.Add(type, newDict);
+                }
+
+                if (!listOfTypes.Contains(type))
+                {
+                    listOfTypes.Add(type);
+                }
+
+                if (!typesDict.ContainsKey(type))
+                {
+                    typesDict.Add(type, new List<double>() { 0, 0, 0, 0 });
+                }
+            }
+
+            foreach (var dragonsType in dragonArmy)
+            {
+                foreach (var dragon in dragonsType.Value)
+                {
+                    typesDict[dragonsType.Key][0] += dragon.Value[0];
+                    typesDict[dragonsType.Key][1] += dragon.Value[1];
+                    typesDict[dragonsType.Key][2] += dragon.Value[2];
+                    typesDict[dragonsType.Key][3]++;
+                }
+            }
+
+            foreach (var dragonTypes in dragonArmy)
+            {
+                typesDict[dragonTypes.Key][0] = Math.Round(typesDict[dragonTypes.Key][0] / typesDict[dragonTypes.Key][3], 2);
+                typesDict[dragonTypes.Key][1] = Math.Round(typesDict[dragonTypes.Key][1] / typesDict[dragonTypes.Key][3], 2);
+                typesDict[dragonTypes.Key][2] = Math.Round(typesDict[dragonTypes.Key][2] / typesDict[dragonTypes.Key][3], 2);
+                Console.WriteLine($"{dragonTypes.Key}::({typesDict[dragonTypes.Key][0]:f2}/{typesDict[dragonTypes.Key][1]:f2}/{typesDict[dragonTypes.Key][2]:f2})");
+                foreach (var dragonNames in dragonTypes.Value)
+                {
+                    Console.WriteLine($"-{dragonNames.Key} -> damage: {dragonNames.Value[0]}, health: {dragonNames.Value[1]}, armor: {dragonNames.Value[2]}");
+                }
             }
         }
     }
