@@ -23,7 +23,9 @@ namespace _05._Shopping_Spree
         {
             int n = int.Parse(Console.ReadLine());
 
-            List<Employee> employees = new List<Employee>();
+            //List<Employee> employees = new List<Employee>();
+
+            var employeeDict = new Dictionary<string, List<Employee>>();
 
             for (int i = 0; i < n; i++)
             {
@@ -35,7 +37,45 @@ namespace _05._Shopping_Spree
 
                 var newEmployee = new Employee(name, salary, department);
 
-                employees.Add(newEmployee);
+                //employees.Add(newEmployee);
+                if (!employeeDict.ContainsKey(department))
+                {
+                    employeeDict.Add(department, new List<Employee>());
+                }
+                employeeDict[department].Add(newEmployee);
+
+            }
+            double maxAverageSalaryForDepartment = 0;
+            string nameOfMaxAverageSalaryDepartment = string.Empty;
+
+
+
+            foreach (var departmentName in employeeDict)
+            {
+                double averageSalaryForDepartment = 0;
+                foreach (var employee in departmentName.Value)
+                {
+                    averageSalaryForDepartment += employee.Salary;
+                }
+                averageSalaryForDepartment /= departmentName.Value.Count();
+                if (maxAverageSalaryForDepartment < averageSalaryForDepartment)
+                {
+                    nameOfMaxAverageSalaryDepartment = departmentName.Key;
+                }
+                maxAverageSalaryForDepartment = Math.Max(averageSalaryForDepartment, maxAverageSalaryForDepartment);
+            }
+            Console.WriteLine($"Highest Average Salary: {nameOfMaxAverageSalaryDepartment}");
+            foreach (var departmentName in employeeDict)
+            {
+                if (departmentName.Key == nameOfMaxAverageSalaryDepartment)
+                {
+                    var departmentNameValueSorted = departmentName.Value.OrderByDescending(x => x.Salary).ToList();
+                    foreach (var employee in departmentNameValueSorted)
+                    {
+                        Math.Round(employee.Salary, 2);
+                        Console.WriteLine($"{employee.Name} {employee.Salary:f2}");
+                    }
+                }
             }
         }
     }
