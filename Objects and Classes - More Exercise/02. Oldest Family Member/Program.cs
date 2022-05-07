@@ -17,12 +17,16 @@ namespace _02._Oldest_Family_Member
     }
     class Family
     {
+        public Family(List<Person> people)
+        {
+            this.People = people;
+        }
         public List<Person> People { get; set; }
-        void AddMember(Person member)
+        public void AddMember(Person member)
         {
             People.Add(member);
         }
-        Person GetOldestMember()
+        public Person GetOldestMember()
         {
             int maxAge = 0;
             Person maxMember = null;
@@ -41,17 +45,24 @@ namespace _02._Oldest_Family_Member
     {
         static void Main(string[] args)
         {
+            var family = new Family(new List<Person>());
+
             int n = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
             {
-                string[] input = Console.ReadLine().Split(' ');
+                string[] input = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
                 string name = input[0];
                 int age = int.Parse(input[1]);
 
-                var newPerson = new Person();
+                var newPerson = new Person(name, age);
+
+                family.AddMember(newPerson);
             }
+
+            Person oldestMemberInFamily = family.GetOldestMember();
+            Console.WriteLine($"{oldestMemberInFamily.Name} {oldestMemberInFamily.Age}");
         }
     }
 }
