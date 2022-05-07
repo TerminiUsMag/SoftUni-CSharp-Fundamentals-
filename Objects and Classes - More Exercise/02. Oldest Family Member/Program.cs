@@ -26,19 +26,28 @@ namespace _02._Oldest_Family_Member
         {
             People.Add(member);
         }
+        //public Person GetOldestMember()
+        //{
+        //    int maxAge = 0;
+        //    Person maxMember = null;
+        //    foreach (var member in People)
+        //    {
+        //        if (member.Age > maxAge)
+        //        {
+        //            maxAge = member.Age;
+        //            maxMember = member;
+        //        }
+        //    }
+        //    return maxMember;
+        //}
         public Person GetOldestMember()
+
         {
-            int maxAge = 0;
-            Person maxMember = null;
-            foreach (var member in People)
-            {
-                if (member.Age > maxAge)
-                {
-                    maxAge = member.Age;
-                    maxMember = member;
-                }
-            }
-            return maxMember;
+
+            var oldestPerson = this.People.OrderByDescending(x => x.Age).FirstOrDefault();
+
+            return oldestPerson;
+
         }
     }
     internal class Program
@@ -53,8 +62,8 @@ namespace _02._Oldest_Family_Member
             {
                 string[] input = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-                string name = input[0];
-                int age = int.Parse(input[1]);
+                string name = input[0].Trim();
+                int age = int.Parse(input[1].Trim());
 
                 var newPerson = new Person(name, age);
 
