@@ -7,6 +7,11 @@ namespace _02._Oldest_Family_Member
 {
     class Person
     {
+        public Person(string name, int age)
+        {
+            this.Name = name;
+            this.Age = age;
+        }
         public string Name { get; set; }
         public int Age { get; set; }
     }
@@ -36,7 +41,17 @@ namespace _02._Oldest_Family_Member
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n; i++)
+            {
+                string[] input = Console.ReadLine().Split(' ');
+
+                string name = input[0];
+                int age = int.Parse(input[1]);
+
+                var newPerson = new Person();
+            }
         }
     }
 }
