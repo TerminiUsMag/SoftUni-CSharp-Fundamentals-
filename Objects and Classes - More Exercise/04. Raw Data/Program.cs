@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace _04._Raw_Data
 {
@@ -6,21 +8,21 @@ namespace _04._Raw_Data
     {
         public Engine(int engineSpeed, int enginePower)
         {
-            this.EngineSpeed = engineSpeed;
-            this.EnginePower = enginePower;
+            this.Speed = engineSpeed;
+            this.Power = enginePower;
         }
-        public int EnginePower { get; set; }
-        public int EngineSpeed { get; set; }
+        public int Power { get; set; }
+        public int Speed { get; set; }
     }
     class Cargo
     {
         public Cargo(int cargoWeight, string cargoType)
         {
-            this.CargoType = cargoType;
-            this.CargoWeight = cargoWeight;
+            this.Type = cargoType;
+            this.Weight = cargoWeight;
         }
-        public string CargoType { get; set; }
-        public int CargoWeight { get; set; }
+        public string Type { get; set; }
+        public int Weight { get; set; }
     }
     class Car
     {
@@ -33,12 +35,63 @@ namespace _04._Raw_Data
         public Cargo Cargo { get; set; }
         public Engine Engine { get; set; }
         public string Model { get; set; }
+        public bool IsFlamable()
+        {
+            bool isFlamable = false;
+            if (this.Cargo.Type == "flamable" && this.Engine.Power > 250) isFlamable = true;
+            return isFlamable;
+        }
+        public bool IsFragile()
+        {
+            bool isFragile = false;
+            if (this.Cargo.Type == "fragile" && this.Cargo.Weight < 1000) isFragile = true;
+            return isFragile;
+        }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int n = int.Parse(Console.ReadLine());
+
+            var cars = new List<Car>();
+
+            for (int i = 0; i < n; i++)
+            {
+                string[] input = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                string model = input[0];
+                int engineSpeed = int.Parse(input[1]);
+                int enginePower = int.Parse(input[2]);
+                int cargoWeight = int.Parse(input[3]);
+                string cargoType = input[4];
+
+                var newCar = new Car(model, engineSpeed, enginePower, cargoWeight, cargoType);
+
+                cars.Add(newCar);
+            }
+
+            string command = Console.ReadLine();
+            switch (command)
+            {
+                case "fragile":
+                    foreach (var car in cars)
+                    {
+                        if (car.IsFragile())
+                        {
+                            Console.WriteLine($"{car.Model}");
+                        }
+                    }
+                    break;
+                case "flamable":
+                    foreach (var car in cars)
+                    {
+                        if (car.IsFlamable())
+                        {
+                            Console.WriteLine($"{car.Model}");
+                        }
+                    }
+                    break;
+            }
         }
     }
 }
