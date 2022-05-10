@@ -46,8 +46,8 @@ namespace _05._Shopping_Spree
             }
             else
             {
-                Console.WriteLine($"{this.Name} - ");
-                if (this.Bag.Count > 1)
+                Console.Write($"{this.Name} - ");
+                if (this.Bag.Count >= 1)
                 {
                     //foreach (Product product in Bag)
                     //{
@@ -64,7 +64,7 @@ namespace _05._Shopping_Spree
                     {
                         if (i == this.Bag.Count - 1)
                         {
-                            Console.Write($"{this.Bag[i].Name}");
+                            Console.Write($"{this.Bag[i].Name}\n");
                         }
                         else
                         {
@@ -128,10 +128,10 @@ namespace _05._Shopping_Spree
                     }
                 }
 
-                foreach (var person in people)
-                {
-                    person.ShoppingBag();
-                }
+            }
+            foreach (var person in people)
+            {
+                person.ShoppingBag();
             }
         }
     }
